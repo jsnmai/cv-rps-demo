@@ -34,6 +34,17 @@
     <button id="btn-again">Play Again</button>
   </div>
 
+  <!--
+    Scripts go at the bottom of the body, not the top.
+    If you put them in the <head>, the browser tries to load and run them before
+    the HTML elements exist yet — so getElementById() would find nothing.
+    Putting them here means the page content is fully built before any JS runs.
+
+    Order matters too:
+    1. TensorFlow.js — the ML engine everything else depends on
+    2. Teachable Machine — builds on top of TensorFlow.js, so it needs to load second
+    3. app.js — our code, which uses both libraries above, so it loads last
+  -->
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
   <script src="app.js"></script>
